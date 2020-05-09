@@ -1,0 +1,23 @@
+sudo: requred
+services:
+    - docker
+
+before_install:
+    - docker build -t pashock632/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+        - docker run pashock632/react-test npm test -- --coverage
+
+after_success:
+    - docker build -t pashock632/multi-client ./client
+    - docker build -t pashock632/multi-nginx ./nginx
+    - docker build -t pashock632/multi-server ./server
+    - docker build -t pashock632/multi-worker ./worker
+    # Take those images and push them to docker hub
+    # Log in to docker cli
+    -echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    # Take images and push them to docker hub
+    - docker push pashock632/multi-client
+    - docker push pashock632/multi-nginx
+    - docker push pashock632/multi-server
+    - docker push pashock632/multi-worker
