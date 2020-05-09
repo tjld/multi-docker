@@ -1,4 +1,4 @@
-language: generic
+language: generiс
 sudo: requred
 services:
     - docker
@@ -7,7 +7,7 @@ before_install:
     - docker build -t pashock632/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-        - docker run -e CI=true pashock632/react-test npm test
+        - docker run -e CI=true pashock632/react-test yarn test
 
 after_success:
     - docker build -t pashock632/multi-client ./client
