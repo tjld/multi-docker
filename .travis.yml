@@ -22,3 +22,15 @@ after_success:
     - docker push pashock632/multi-nginx
     - docker push pashock632/multi-server
     - docker push pashock632/multi-worker
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: multiDocker
+    env: Multidocker-env
+    bucket_name: elasticbeanstalk-us-east-2-407190452134
+    bucket_path: docker-multi
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
