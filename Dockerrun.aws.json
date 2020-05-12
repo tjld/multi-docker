@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "client",
-            "image": "pashock632/multi-client",
+            "image": "pashock632/multi-client:latest",
             "hostname": "client",
             "essential": false,
             "memory": 128
@@ -11,7 +11,7 @@
 
         {
             "name": "server",
-            "image": "pashock632/multi-server",
+            "image": "pashock632/multi-server:latest",
             "hostname": "api",
             "essential":  false,
             "memory": 128
@@ -19,7 +19,7 @@
         
         {
             "name": "worker",
-            "image": "pashock632/multi-worker",
+            "image": "pashock632/multi-worker:latest",
             "hostname": "worker",
             "essential": false,
             "memory": 128
@@ -27,7 +27,7 @@
 
         {
             "name": "nginx",
-            "image": "pashock632/multi-nginx",
+            "image": "pashock632/multi-nginx:latest",
             "essential": true,
             "portMappings": [
                 {
