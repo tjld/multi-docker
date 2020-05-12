@@ -13,7 +13,7 @@
             "name": "server",
             "image": "pashock632/multi-server:latest",
             "hostname": "api",
-            "essential":  false,
+            "essential": false,
             "memory": 128
         },
         
