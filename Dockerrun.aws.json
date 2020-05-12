@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "client",
-            "image": "pashock632/multi-client:latest",
+            "image": "stephengrider/multi-client:latest",
             "hostname": "client",
             "essential": false,
             "memory": 128
